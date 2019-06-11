@@ -12,7 +12,7 @@ require('dotenv').config();
 const login = async req => {
   const body = await json(req);
   if (body.user === process.env.USER && body.pass === process.env.PASS) {
-    const user = { user: body.user };
+    const user = { name: body.user };
     const token = sign({ user }, process.env.SECRET);
     return { token, user };
   } else {
