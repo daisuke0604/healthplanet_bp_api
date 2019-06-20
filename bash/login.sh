@@ -4,7 +4,7 @@ set -euC
 
 . ./env
 
-curl -X POST \
+curl -v -X POST \
     -H "Content-Type:application/json" \
     -d "{\"user\": \"${USER}\", \"pass\": \"${PASS}\"}" \
-    "http://localhost:3000/login"
+    "http://${HOST}:${PORT}/login"
