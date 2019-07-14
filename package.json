@@ -13,9 +13,8 @@
   "author": "Daisuke Yamamoto",
   "license": "MIT",
   "devDependencies": {
-    "eslint": "^5.16.0",
-    "eslint-config-prettier": "^4.3.0",
-    "eslint-plugin-jest": "^22.6.4",
+    "eslint": "^6.0.0",
+    "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-prettier": "^3.1.0",
     "jest": "^24.8.0",
     "micro-dev": "^3.0.0",
