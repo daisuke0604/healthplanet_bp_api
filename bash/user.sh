@@ -6,4 +6,4 @@ set -euC
 
 curl -X GET \
     -H "authorization: Bearer ${TOKEN}" \
-    "http://localhost:3000/user"
+    "http://${HOST}:${PORT}/user"

@@ -1,5 +1,6 @@
 'use strict';
-const { json } = require('micro');
+const { send, json } = require('micro');
+const cors = require('micro-cors')();
 const { sign } = require('jsonwebtoken');
 const jwtAuth = require('micro-jwt-auth');
 const rdb = require('./lib/rdb.js');
@@ -14,6 +15,7 @@ const login = async req => {
   if (body.user === process.env.USER && body.pass === process.env.PASS) {
     const user = { name: body.user };
     const token = sign({ user }, process.env.SECRET);
+    // res.setHeader('Access-Control-Allow-Origin', '*');
     return { token, user };
   } else {
     return {};
@@ -33,13 +35,16 @@ const fetchBpData = jwtAuth(process.env.SECRET)(async () => {
  * micro entrypoint.
  * @param {http.IncomingMessage} req
  */
-module.exports = async req => {
+module.exports = cors(async (req, res) => {
+  if (req.method === 'OPTIONS') {
+    return send(res, 200);
+  }
   switch (req.url) {
     case '/login':
       return login(req);
     case '/fetch':
-      return fetchBpData(req);
+      return fetchBpData();
     default:
       break;
   }
-};
+});
