@@ -1,3 +1,4 @@
 node_modules/
+systemd/
 .env
 bash/env

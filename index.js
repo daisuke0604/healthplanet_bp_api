@@ -37,7 +37,7 @@ module.exports = async req => {
   switch (req.url) {
     case '/login':
       return login(req);
-    case '/bp':
+    case '/fetch':
       return fetchBpData(req);
     default:
       break;
