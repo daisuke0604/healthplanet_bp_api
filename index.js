@@ -28,6 +28,7 @@ const login = async req => {
  */
 const fetchBpData = jwtAuth(process.env.SECRET)(async () => {
   const result = await rdb.fetchBpRecords();
+  console.log(result[0]);
   return result[0];
 });
 
@@ -43,7 +44,7 @@ module.exports = cors(async (req, res) => {
     case '/login':
       return login(req);
     case '/fetch':
-      return fetchBpData();
+      return fetchBpData(req);
     default:
       break;
   }

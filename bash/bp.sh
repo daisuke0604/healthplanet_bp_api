@@ -1,9 +1,10 @@
 #!/bin/bash
 
 set -euC
+cd $(dirname $0)
 
 . ./env
 
 curl -X GET \
     -H "authorization: Bearer ${TOKEN}" \
-    "http://localhost:3001/fetch"
+    "http://${HOST}:${PORT}/fetch" | jq .

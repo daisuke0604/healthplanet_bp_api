@@ -5,11 +5,13 @@
   },
   "extends": [
     "eslint:recommended",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "plugin:jest/recommended"
   ],
   "parserOptions": {
     "ecmaVersion": 2017
   },
+  "plugins": ["jest"],
   "rules": {
     "max-len": "warn",
     "no-console": "off",

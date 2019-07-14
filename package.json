@@ -7,7 +7,8 @@
   "scripts": {
     "start": "micro -l tcp://0.0.0.0:3001",
     "dev": "micro-dev",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint --fix index.js lib/*.js test/*.js",
+    "test": "jest --runInBand"
   },
   "keywords": [],
   "author": "Daisuke Yamamoto",
@@ -15,7 +16,9 @@
   "devDependencies": {
     "eslint": "^6.0.0",
     "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-jest": "^22.7.2",
     "eslint-plugin-prettier": "^3.1.0",
+    "jest": "^24.8.0",
     "micro-dev": "^3.0.0",
     "prettier": "^1.18.2"
   },
